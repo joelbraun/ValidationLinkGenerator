@@ -2,7 +2,7 @@
 
 namespace ValidationLinkGenerator
 {
-    public class SecurityStampGenerator
+    public static class SecurityStampGenerator
     {
         private static readonly RandomNumberGenerator _rng = RandomNumberGenerator.Create();
 
