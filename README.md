@@ -38,4 +38,19 @@ This method takes in the following parameters:
 You'll get back a true or false value indicating the validity of the token.
 
 
-See the unit tests for further examples.
+# Example
+```
+[Fact]
+public void TokenValid()
+{
+    var securityStamp = SecurityStampGenerator.NewSecurityStamp(); // generate a security stamp for the resource
+    const string purpose = "ConfirmEmail"; // what we're using the token for
+    const string resourceId = "bfaf2b0b-6f2c-4e3e-b38f-fe3c32538b32"; // the ID which should be used to reference the stamp
+
+    var token = _dataProtectorTokenProvider.Generate(purpose, , securityStamp);
+
+    var result = _dataProtectorTokenProvider.Validate(token, purpose, resourceId, securityStamp);
+
+    Assert.True(result);
+}
+```
